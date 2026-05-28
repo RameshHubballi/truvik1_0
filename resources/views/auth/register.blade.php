@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <style>
-        body { font-family: Arial; background: #f2f2f2; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .register-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
-        .register-form h2 { text-align: center; margin-bottom: 20px; }
-        .register-form input { width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-        .register-form button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; }
-        .error { color: red; font-size: 14px; margin-bottom: 10px; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @vite('resources/css/style.css')
 </head>
-<body>
-    <form method="POST" action="{{ url('/register') }}" class="register-form">
-        @csrf
-        <h2>Create Account</h2>
+<body class="auth-page-body register-bg">
+    <div class="auth-container register-container">
+        <form method="POST" action="{{ url('/register') }}">
+            @csrf
+            <h2><i class="fa-solid fa-user-plus"></i> Create Account 🚀</h2>
 
-        @if($errors->any())
-            <div class="error">{{ $errors->first() }}</div>
-        @endif
+            @if($errors->any())
+                <div class="auth-error">
+                    <i class="fa-solid fa-circle-exclamation"></i> {{ $errors->first() }}
+                </div>
+            @endif
 
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+            <div class="auth-input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="name" placeholder="Full Name" required>
+            </div>
 
-        <button type="submit">Register</button>
-    </form>
+            <div class="auth-input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="auth-input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <div class="auth-input-group">
+                <i class="fa-solid fa-shield-halved"></i>
+                <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+        <div class="auth-link">
+            Already have an account? <a href="{{ url('/login') }}">Login here</a>
+        </div>
+    </div>
 </body>
 </html>

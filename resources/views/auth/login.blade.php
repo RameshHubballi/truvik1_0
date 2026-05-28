@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        body { font-family: Arial; background: #f2f2f2; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .login-form { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; }
-        .login-form h2 { text-align: center; margin-bottom: 20px; }
-        .login-form input { width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-        .login-form button { width: 100%; padding: 10px; background: #007BFF; color: white; border: none; border-radius: 4px; }
-        .error { color: red; font-size: 14px; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @vite('resources/css/style.css')
 </head>
-<body>
-    <form method="POST" action="{{ url('/login') }}" class="login-form">
-        @csrf
-        <h2>Login</h2>
+<body class="auth-page-body">
+    <div class="auth-container">
+        <form method="POST" action="{{ url('/login') }}">
+            @csrf
+            <h2><i class="fa-solid fa-right-to-bracket"></i> Welcome Back 👋</h2>
 
-        @if($errors->any())
-            <div class="error">{{ $errors->first() }}</div>
-        @endif
+            @if($errors->any())
+                <div class="auth-error">
+                    <i class="fa-solid fa-circle-exclamation"></i> {{ $errors->first() }}
+                </div>
+            @endif
 
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
+            <div class="auth-input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="auth-input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
 
-        <button type="submit">Login</button>
-    </form>
+            <button type="submit">Login</button>
+        </form>
+        <div class="auth-link">
+            Don't have an account? <a href="{{ url('/register') }}">Register here</a>
+        </div>
+    </div>
 </body>
 </html>
