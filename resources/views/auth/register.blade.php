@@ -12,7 +12,7 @@
     <div class="auth-container register-container">
         <form method="POST" action="{{ url('/register') }}">
             @csrf
-            <h2><i class="fa-solid fa-user-plus"></i> Create Account 🚀</h2>
+            <h2><i class="fa-solid fa-user-plus"></i> Create Account </h2>
 
             @if($errors->any())
                 <div class="auth-error">
@@ -28,6 +28,11 @@
             <div class="auth-input-group">
                 <i class="fa-solid fa-envelope"></i>
                 <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="auth-input-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" name="mobile_number" placeholder="Mobile Number" required>
             </div>
             
             <div class="auth-input-group">
