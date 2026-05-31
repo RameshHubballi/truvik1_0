@@ -53,11 +53,11 @@
     </style>
 </head>
 <body class="auth-page-body">
-    <div class="bg-slideshow">
+    <!--div class="bg-slideshow">
         <div class="bg-slide"></div>
         <div class="bg-slide"></div>
         <div class="bg-slide"></div>
-    </div>
+    </div-->
     <div class="auth-container">
         <form method="POST" action="{{ url('/login') }}">
             @csrf
