@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @vite('resources/css/style.css')
     <style>
-        .bg-slideshow {
+        /*.bg-slideshow {
             position: fixed;
             width: 100vw;
             height: 100vh;
@@ -49,7 +49,7 @@
         
         body.auth-page-body {
             background: transparent !important;
-        }
+        }*/
 
         .google-login-btn {
             display: flex !important;
