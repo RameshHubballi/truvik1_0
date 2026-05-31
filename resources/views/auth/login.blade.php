@@ -81,6 +81,9 @@
 
             <button type="submit">Login</button>
         </form>
+        <a href="{{ url('/auth/google') }}">
+            Login with Google
+        </a>
         <div class="auth-link">
             Don't have an account? <a href="{{ url('/register') }}">Register here</a>
         </div>
