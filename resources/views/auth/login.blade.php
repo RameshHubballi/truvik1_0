@@ -50,6 +50,40 @@
         body.auth-page-body {
             background: transparent !important;
         }
+
+        .google-login-btn {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 20px !important;
+            margin-top: 12px;
+            background: #fff;
+            border: 2px solid #db4437;
+            border-radius: 8px;
+            color: #db4437 !important;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+
+        .google-login-btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .google-login-btn:hover {
+            background: #db4437;
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(219, 68, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .google-login-btn:active {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="auth-page-body">
@@ -81,9 +115,12 @@
 
             <button type="submit">Login</button>
         </form>
-        <a href="{{ url('/auth/google') }}">
-            Login with Google
+
+        <a href="{{ url('/auth/google') }}" class="google-login-btn">
+            <i class="fab fa-google"></i>
+            Continue with Google
         </a>
+
         <div class="auth-link">
             Don't have an account? <a href="{{ url('/register') }}">Register here</a>
         </div>
