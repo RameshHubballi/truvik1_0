@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\GoogleAuthController;
+
+Route::get('/auth/google', [GoogleAuthController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -13,6 +17,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 //Route::get('/login', [AuthController::class, 'showLogin']);
+
+
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
